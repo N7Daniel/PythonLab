@@ -59,7 +59,7 @@ class Button_Example:
         pygame.display.flip()
 
     #Question1
-    def pregunta1(self):
+    """def pregunta1(self):
         print "entra al loop pregunta 1"
         font3 = pygame.font.Font(None, 22)
         
@@ -141,7 +141,7 @@ class Button_Example:
         derposC2.center = (500, 70)
         self.screen.blit(derC2, derposC2)
 
-        print "termina creacion de elementos de pantalla P3"
+        print "termina creacion de elementos de pantalla P3""""
                 
     #Delete current screen
     def borrar(self):
@@ -151,23 +151,49 @@ class Button_Example:
         self.screen.blit(background, [0,0])
         pygame.display.flip()
         
-    def sigpreg(self, current):
+    """def sigpreg(self, current):
         if(current == 2):
             self.pregunta2()
         elif(current == 3):
             self.pregunta3()
         else:
-            print "fin del ciclo"
+            print "fin del ciclo""""
 
     #Creates a new screen and overwrites the previous, then starts asking
     def encuestar(self):
-        """background = pygame.Surface(self.screen.get_size())
-        background = background.convert()
-        background.fill((0, 0, 0))
-        self.screen.blit(background, [0,0])
-        pygame.display.flip()"""
         self.borrar()
-        self.pregunta1()
+        #self.pregunta1()
+	Estimulo = [["agradable", "victima", "desagradable", "excombatiente", "Ejemplo1", "left"],
+["agradable", "victima", "desagradable", "excombatiente", "Ejemplo2", "right"],
+["agradable", "victima", "desagradable", "excombatiente", "Ejemplo3", "left"]]
+	font3 = pygame.font.Font(None, 22)
+	for left1, left2, right1, right2, stim, ans in Estimulo:
+		izq1 = font3.render(left1, 1, (255, 255, 255))
+		izqpos1 = izq1.get_rect()
+		izqpos1.center = (300, 50)
+		self.screen.blit(izq1, izqpos1)
+
+		der1 = font3.render(right1, 1, (255, 255, 255))
+		derpos1 = der1.get_rect()
+		derpos1.center = (500, 50)
+		self.screen.blit(der1, derpos1)
+
+		izq2 = font3.render(left2, 1, (255, 255, 255))
+		izqpos2 = izq2.get_rect()
+		izqpos2.center = (300, 70)
+		self.screen.blit(izq2, izqpos2)
+
+		der2 = font3.render(right2, 1, (255, 255, 255))
+		derpos2 = der2.get_rect()
+		derpos2.center = (500, 70)
+		self.screen.blit(der2, derpos2)
+		
+		mid = font3.render(stim, 1, (255, 255, 255))
+		midpos = mid.get_rect()
+		midpos.center = (400, 350)
+		self.screen.blit(mid, midpos)
+	
+		
 
     #Run the loop
     def main(self):
@@ -187,7 +213,8 @@ class Button_Example:
                         currentquestion += 1
                         print "Give me a command!"
                 elif event.type == KEYDOWN:
-                    font3 = pygame.font.Font(None, 22)
+                    """font3 = pygame.font.Font(None, 22)
+		    
                     if event.key == K_LEFT and currentquestion == 1:
                         print "tecla izq pregunta 1"
                         print "Incorrecto"
@@ -247,7 +274,7 @@ class Button_Example:
                         correctpos1.center = (400, 300)
                         self.screen.blit(correct1, correctpos1)
                         currentquestion += 1
-                        self.sigpreg(currentquestion)
+                        self.sigpreg(currentquestion)"""
 
 if __name__ == '__main__':
     obj = Button_Example()
